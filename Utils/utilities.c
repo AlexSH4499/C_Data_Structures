@@ -82,7 +82,7 @@ int* reverseArray(int* arr)
 
   int size = arrayLength(arr);
   int reverse[size];
-  for(int i = size-1; i >= 0 ; i++)
+  for(int i = size-1; i >= 0 ; i--)
   {
     reverse[i] = arr[i];
   }
@@ -110,6 +110,7 @@ void printArray(int* arr)
     if(arrayLength(arr) < = 0)
     {
       printf("Array is Empty!\n");
+      return;
     }
     int size = arrayLength(arr)-1;//we will not print the null character
     printf("Array(%d):{", &size);
