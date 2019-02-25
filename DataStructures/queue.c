@@ -6,7 +6,7 @@ queue* newQueue( unsigned cap)
     cap = SIZE;
   struct queue* q = (struct queue *)malloc(sizeof(struct queue));
   q->list = (int *)malloc(sizeof(int)*cap);
-  q->avail_space = cap;
+  q->avail_space = 0;
   q->first = 0;
   return q;
 }

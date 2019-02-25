@@ -8,7 +8,7 @@ stack* newStack( unsigned cap)
   if(cap <= 0)//Default to 10 for the size
     cap  = SIZE;
   struck stack* s =  (struct stack *)malloc(sizeof(struct stack));
-  s->capacity = cap;
+  s->capacity = 0;//Because if it is cap we have a memory error :)
   s->list = (int*)malloc(sizeof(int) * cap);
   s->top = EMPTY;//This will let us know stack is empty
   return s;
