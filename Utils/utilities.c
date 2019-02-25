@@ -17,7 +17,24 @@ int* range(int min, int max)//We need to make sure this doesn't break with negat
     return arr;
 }
 
-long distance(int to, int from)
+int maxElement(int* arr)
+{
+    if(sizeArr(arr) <= 0)
+    {
+      printf("Invalid Array!\n" );
+      return 0;//terrible error management
+    }
+    int max = arr[0];
+    for(int i=0 ; i< sizeArr(arr); i++)
+    {
+      if(max < arr[i])
+        max = arr[i];
+    }
+
+    return max;
+}
+
+long distance(int from, int to)
 {
   return abs(to-from);
 }
@@ -108,4 +125,41 @@ unsigned int arrayLength(int* arr)
 {
   unsigned int length = sizeof(arr) / sizeof(int);
   return length;
+}
+
+void copyData(int* from, int* to)
+{
+  int lim = minSize(from, to);//we make sure to not write garbage from one to the other
+
+  for(int i =0; i < lim ; i++)
+  {
+    to[i] = from[i];
+  }
+
+}
+
+int maxSize(int* a, int* b)
+{
+  if(sizeof(a) > sizeof(b))
+    return sizeof(a);
+  return sizeof(b);
+}
+
+int minSize(int* a, int* b)
+{
+
+    if(sizeof(a) < sizeof(b))
+      return sizeof(a);
+    return sizeof(b);
+
+}
+
+void shiftDataLeft(int* arr)
+{
+  int size = arrayLength(arr);
+  for(int i = 0; i < size  -1;i++)
+  {
+    arr[i] = arr[i+1];
+  }
+  arr[size-1] = NULL;
 }

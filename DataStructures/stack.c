@@ -2,8 +2,11 @@
 #include "stack.h"
 
 
-/*Creates a new stack instance with default size*/
-stack* newStack( unsigned cap){
+/*Creates a new stack instance*/
+stack* newStack( unsigned cap)
+{
+  if(cap <= 0)//Default to 10 for the size
+    cap  = SIZE;
   struck stack* s =  (struct stack *)malloc(sizeof(struct stack));
   s->capacity = cap;
   s->list = (int*)malloc(sizeof(int) * cap);
@@ -56,32 +59,6 @@ void push(struct stack* s,int data)
   s->top++;
 }
 
-int maxSize(int* a, int* b)
-{
-  if(sizeof(a) > sizeof(b))
-    return sizeof(a);
-  return sizeof(b);
-}
-
-int minSize(int* a, int* b)
-{
-
-    if(sizeof(a) < sizeof(b))
-      return sizeof(a);
-    return sizeof(b);
-
-}
-
-void copyData(int* from, int* to)
-{
-  int lim = minSize(from, to);//we make sure to not write garbage from one to the other
-
-  for(int i =0; i < lim ; i++)
-  {
-    to[i] = from[i];
-  }
-
-}
 
 int pop(struct stack* s)
 {
