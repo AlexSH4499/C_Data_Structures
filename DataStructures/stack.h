@@ -1,4 +1,4 @@
-#IF_N_DEF STACK_H
+#ifndef STACK_H
 #DEFINE SIZE 10
 #DEFINE EMPTY -1
 #include "utilities.h"
@@ -21,4 +21,4 @@ boolean isEmpty(struct stack* s);
 void push(struct stack* s,int data);
 int pop(struct stack* s);
 
-#ENDIF
+#endif

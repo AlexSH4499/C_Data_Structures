@@ -1,0 +1,9 @@
+C:\Users\Familia\Documents\GitHub\CDataStructures\Utils\UtilitiesTest.c:2:2: error: invalid preprocessing directive #inlcude
+ #inlcude  <stdlib.h>
+  ^~~~~~~
+C:\Users\Familia\Documents\GitHub\CDataStructures\Utils\UtilitiesTest.c: In function 'testReverse':
+C:\Users\Familia\Documents\GitHub\CDataStructures\Utils\UtilitiesTest.c:9:21: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+   int* arr = (int *)malloc(sizeof(int ) * 10);
+                     ^~~~~~
+C:\Users\Familia\Documents\GitHub\CDataStructures\Utils\UtilitiesTest.c:9:21: warning: incompatible implicit declaration of built-in function 'malloc'
+C:\Users\Familia\Documents\GitHub\CDataStructures\Utils\UtilitiesTest.c:9:21: note: include '<stdlib.h>' or provide a declaration of 'malloc'

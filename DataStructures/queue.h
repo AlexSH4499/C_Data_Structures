@@ -1,4 +1,4 @@
-#IF_N_DEF QUEUE_H
+#ifndef QUEUE_H
 #DEFINE SIZE 10
 #DEFINE EMPTY -1
 
@@ -20,4 +20,4 @@ boolean isEmpty(struct queue* s);
 void enqueue(struct queue* s, int data);
 int dequeue(struct queue* s);
 
-#ENDIF
+#endif

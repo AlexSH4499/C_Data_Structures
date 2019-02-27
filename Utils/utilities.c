@@ -1,12 +1,12 @@
 #include "utilities.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 
 int* range(int min, int max)//We need to make sure this doesn't break with negatives
 {
     if(distance(max,min) == 0)
-      return {0};//array of size 1 with zero as its only element
-    int arr[distance(max, min)];
+      return NULL;//array of size 1 with zero as its only element
+    int* arr = (int*)malloc(distance(max, min) * sizeof(int));
     int j = 0;
     for(int i = min ; i < max; i++ )
     {
@@ -19,13 +19,14 @@ int* range(int min, int max)//We need to make sure this doesn't break with negat
 
 int maxElement(int* arr)
 {
-    if(sizeArr(arr) <= 0)
+  int size = arrayLength(arr);
+    if(size <= 0)
     {
       printf("Invalid Array!\n" );
       return 0;//terrible error management
     }
     int max = arr[0];
-    for(int i=0 ; i< sizeArr(arr); i++)
+    for(int i=0 ; i< size; i++)
     {
       if(max < arr[i])
         max = arr[i];
@@ -58,6 +59,7 @@ long arrayMult(int* arr, int sizeArr)
   }
 
   return mult;
+
 }
 
 long arraySum(int* arr, int sizeArr)
@@ -78,10 +80,10 @@ long arraySum(int* arr, int sizeArr)
 int* reverseArray(int* arr)
 {
   if(arrayLength(arr) <= 0)
-    return {};
+    return NULL;
 
   int size = arrayLength(arr);
-  int reverse[size];
+  int* reverse = (int *) malloc(size*sizeof(int));
   for(int i = size-1; i >= 0 ; i--)
   {
     reverse[i] = arr[i];
@@ -89,25 +91,25 @@ int* reverseArray(int* arr)
   return reverse;
 }
 
-char* arrayToString(int* arr)
-{
-  if(arrayLength(arr) <= 0)
-    return {NULL};
-
-  int size = arrayLength(arr);//because null terminated
-  char str[size+1];
-
-  for(int i=0; i< size; i++)
-  {
-    str[i] = arr[i];
-  }
-
-  return str;
-}
+// char* arrayToString(int* arr)
+// {
+//   if(arrayLength(arr) <= 0)
+//     return {NULL};
+//
+//   int size = arrayLength(arr);//because null terminated
+//   char str[size+1];
+//
+//   for(int i=0; i< size; i++)
+//   {
+//     str[i] = arr[i];
+//   }
+//
+//   return *str;
+// }
 
 void printArray(int* arr)
 {
-    if(arrayLength(arr) < = 0)
+    if(arrayLength(arr) <= 0)
     {
       printf("Array is Empty!\n");
       return;
@@ -162,5 +164,5 @@ void shiftDataLeft(int* arr)
   {
     arr[i] = arr[i+1];
   }
-  arr[size-1] = NULL;
+  arr[size-1] = 0;
 }
